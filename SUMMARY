@@ -1,1 +1,2 @@
-Ultra-realistic GPS spoofing for rooted Android. Hooks the location framework (system_server, GMS fused provider, NMEA/GnssStatus, sensors, network, geocoder) so every app on the device sees the fake fix.
+Ultra-realistic GPS spoofing for rooted Android.
+Fake GPS siêu thực dành cho Android.
