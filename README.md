@@ -1,7 +1,11 @@
-# Fake GPS: Fake GPS Navigation & Joystick
+<div align="center">
+  <img src="https://raw.githubusercontent.com/mwarevn/fake-gps/refs/heads/release/app-icon.png" alt="Fake GPS mwarevn" width="100"/>
 
-> Ultra-realistic GPS spoofing for rooted Android — powered by LSPosed / libxposed.
-> _Giả lập GPS siêu thực cho Android đã root — chạy trên LSPosed / libxposed._
+  # 🚀 Fake GPS: Advanced Navigation & Joystick
+
+   **Ultra-realistic GPS spoofing for rooted Android — powered by LSPosed / libxposed.**
+   <br />
+   **_Giả lập GPS siêu thực cho Android đã root._**
 
   [![Kotlin](https://img.shields.io/badge/Kotlin-1.9+-blue.svg?logo=kotlin)](https://kotlinlang.org)
   [![Platform](https://img.shields.io/badge/Platform-Android_8.0+-green.svg?logo=android)](https://www.android.com)
@@ -9,6 +13,8 @@
   [![Mapbox](https://img.shields.io/badge/Mapbox-v11-blue.svg)](#)
   [![Maintainer](https://img.shields.io/badge/Maintained%3F-yes-brightgreen.svg)](#)
   [![Download](https://img.shields.io/badge/Download-Latest_Release-brightgreen.svg?style=flat-square)](../../releases)
+
+</div>
 
 ---
 
