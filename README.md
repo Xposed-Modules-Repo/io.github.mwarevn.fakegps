@@ -44,8 +44,6 @@
 
 ---
 
-# 🇬🇧 English
-
 ## Overview
 
 Fake GPS hooks deep into Android's location stack so **every app on the device**
