@@ -3,43 +3,44 @@
 > Ultra-realistic GPS spoofing for rooted Android — powered by LSPosed / libxposed.
 > _Giả lập GPS siêu thực cho Android đã root — chạy trên LSPosed / libxposed._
 
-![libxposed API 102](https://img.shields.io/badge/libxposed-API%20102-blue)
-![Android 7.0+ (API 24)](<https://img.shields.io/badge/Android-7.0%2B%20(API%2024)-green>)
+  [![Kotlin](https://img.shields.io/badge/Kotlin-1.9+-blue.svg?logo=kotlin)](https://kotlinlang.org)
+  [![Platform](https://img.shields.io/badge/Platform-Android_8.0+-green.svg?logo=android)](https://www.android.com)
+  [![LsPosed](https://img.shields.io/badge/LsPosed-Required-red.svg)](#)
+  [![Mapbox](https://img.shields.io/badge/Mapbox-v11-blue.svg)](#)
+  [![Maintainer](https://img.shields.io/badge/Maintained%3F-yes-brightgreen.svg)](#)
+  [![Download](https://img.shields.io/badge/Download-Latest_Release-brightgreen.svg?style=flat-square)](../../releases)
 
 ---
 
-## / Module Info · Thông tin module
+## 🎬 Demo Videos & Screenshots (Click to view demo) / Demo (Click để xem)
 
-| Key / Mục       | Value / Giá trị                          |
-| --------------- | ---------------------------------------- |
-| **Name / Tên**  | Fake GPS: Fake GPS Navigation & Joystick |
-| **Package**     | `io.github.mwarevn.fakegps`              |
-| **Module API**  | libxposed API **102** (min / target)     |
-| **Min Android** | 7.0 (API 24)                             |
-| **Source**      | https://github.com/mwarevn/fake-gps      |
+<div align="center">
 
----
+<table>
+  <tr>
+    <td align="center" width="33%">
+       <a href="https://pub-a052aef593f24fe69f2aed2f3b80118f.r2.dev/demolight.mp4">
+          <img src="https://pub-a052aef593f24fe69f2aed2f3b80118f.r2.dev/demolightcover.jpg" width="100%"/>
+       </a>
+      <br/>
+      <sub><b>Demo</b> - Route Navigation</sub>
+    </td>
+    <td align="center" width="33%">
+       <a href="https://pub-a052aef593f24fe69f2aed2f3b80118f.r2.dev/demodark.mp4">
+          <img src="https://pub-a052aef593f24fe69f2aed2f3b80118f.r2.dev/demodarkcover.jpg" width="100%"/>
+       </a>
+      <br/>
+      <sub><b>Demo</b> — 3D Style</sub>
+    </td>
+    <td align="center" width="33%">
+      <img src="https://raw.githubusercontent.com/mwarevn/fake-gps/release/screenshot.jpg" width="100%"/>
+      <br/>
+      <sub><b>Screenshot</b> — Drawer</sub>
+    </td>
+  </tr>
+</table>
 
-## / Table of Contents · Mục lục
-
-- [🇬🇧 English](#-english)
-    - [Overview](#overview)
-    - [Features](#features)
-    - [Requirements](#requirements)
-    - [Installation](#installation)
-    - [Usage](#usage)
-    - [Troubleshooting](#troubleshooting)
-    - [Disclaimer](#disclaimer)
-- [🇻🇳 Tiếng Việt](#-tiếng-việt)
-    - [Tổng quan](#tổng-quan)
-    - [Tính năng](#tính-năng)
-    - [Yêu cầu](#yêu-cầu)
-    - [Cài đặt](#cài-đặt)
-    - [Sử dụng](#sử-dụng)
-    - [Khắc phục sự cố](#khắc-phục-sự-cố)
-    - [Miễn trừ trách nhiệm](#miễn-trừ-trách-nhiệm)
-
----
+</div>
 
 ---
 
@@ -194,157 +195,6 @@ This module is intended for **testing, development, and privacy**. Spoofing your
 location may violate the terms of service of some apps and may be illegal in
 certain contexts. **You are responsible for how you use it.** Use it only where
 you are permitted to.
-
----
-
----
-
-# 🇻🇳 Tiếng Việt
-
-## Tổng quan
-
-Fake GPS can thiệp sâu vào tầng location của Android để **mọi ứng dụng trên máy**
-đều nhận vị trí giả thay vì vị trí thật. Module hook vào framework location của hệ
-thống (`system_server`, provider fused của Google Play Services, và cả hai kênh
-thô NMEA / GnssStatus), đồng thời chặn các kênh phụ (sensor, network, cell, quét
-Wi-Fi / Bluetooth, reverse geocoding) mà app tinh vi có thể dùng để suy ngược ra
-vị trí thật của bạn.
-
-Ngoài việc giả lập một điểm tĩnh đơn giản, module còn là một bộ công cụ vị trí đầy
-đủ: mô phỏng dẫn đường theo lộ trình, joystick analog, ghi / phát lại track GPS, và
-lên lịch chạy tự động ngay cả khi app đã bị tắt.
-
-## Tính năng
-
-### Giả lập
-
-- **Giả lập tĩnh** — dịch chuyển vị trí giả tới bất kỳ điểm nào trên bản đồ.
-- **GPS trong nhà không ổn định (jitter)** — tùy chọn cho vị trí "đang giữ" dao
-  động nhẹ có tương quan trong bán kính accuracy, giống một máy thu đứng yên thật
-  thay vì đứng im tuyệt đối.
-
-### Dẫn đường
-
-- **Mô phỏng dẫn đường theo lộ trình** — lập lộ trình qua Mapbox Directions;
-  engine chạy vị trí giả dọc theo polyline trong một foreground service nền.
-    - **Đèn đỏ** mô phỏng (tùy chỉnh mật độ + khoảng thời gian chờ)
-    - **Tự giảm tốc** khi vào cua
-    - Chế độ **lặp lại** (ping-pong A → B → A …)
-    - Nối đoạn off-road, nội suy mượt
-- **Joystick analog** — điều khiển vị trí giả theo thời gian thực, tối đa
-  150 km/h, cảm giác chính xác cao quanh tâm.
-
-### Ghi & phát lại
-
-- **Ghi** track GPS thật của thiết bị (+ tạm dừng / tiếp tục).
-- **Phát lại** track theo đúng thời gian thật đã ghi, hoặc theo tốc độ tùy chọn.
-
-### Tự động hóa
-
-- **Hành động theo lịch** (một lần / hằng ngày / hằng tuần): chạy giả lập tĩnh,
-  dẫn đường, phát lại, hoặc dừng — thực thi bằng `AlarmManager` native nên chạy
-  được **kể cả khi app đã bị kill**. Khi mở lại app, trạng thái được đồng bộ ngay.
-
-### Tàng hình / Chống phát hiện
-
-- **Theo từng app** hoặc **toàn hệ thống** (chế độ system qua hook `system_server`).
-- Các công tắc độc lập để chặn tín hiệu thật làm lộ vị trí:
-    - Accuracy, sensor chuyển động
-    - Network location, cell (định vị theo cell-ID)
-    - Quét Wi-Fi, quét Bluetooth
-    - Reverse geocoding
-- Giả **sky view** vệ tinh (GnssStatus) và luồng **NMEA**.
-
-### Tiện ích
-
-- Chia sẻ link **vào / ra**: Google Maps, Apple Maps, Waze, Grab, OSM, URI `geo:`.
-- **Yêu thích** cho điểm và lộ trình.
-- **Sao lưu & phục hồi** (cài đặt, yêu thích, lịch, track đã ghi).
-- **Cập nhật trong app** — tự cài APK từ GitHub Releases, metadata release được
-  xác minh bằng **ECDSA P-256** (chống MITM) và két chống can thiệp chữ ký APK.
-- Giao diện **4 ngôn ngữ**: English, Tiếng Việt, 简体中文, 繁體中文.
-
-## Yêu cầu
-
-- Thiết bị đã **root**.
-- **LSPosed** (bản _Vector_ hiện đại cho libxposed API 102).
-- **Zygisk** (ví dụ _ReZygisk_).
-- Android **7.0+** (API 24).
-
-> ⚠️ Dùng LSPosed (Vector) và Zygisk (ReZygisk) mới nhất. Gỡ bản module cũ trước
-> khi cài bản này.
-
-## Cài đặt
-
-> 🎬 **Video hướng dẫn:** https://youtu.be/26nd7CD_Erc
-
-### 1. Chuẩn bị thiết bị
-
-- Đảm bảo thiết bị đã **root** (Magisk / KernelSU / APatch).
-- Cài **Zygisk** (ví dụ _ReZygisk_) và **LSPosed** (bản _Vector_ cho libxposed
-  API 102).
-- Nếu đã từng cài bản module cũ, **gỡ cài đặt trước**.
-
-### 2. Cài APK
-
-- Tải APK mới nhất từ trang [Releases](https://github.com/mwarevn/fake-gps/releases).
-- Cài lên thiết bị (có thể cần bật "Cài đặt ứng dụng không rõ nguồn gốc").
-
-### 3. Bật module trong LSPosed
-
-1. Mở trình quản lý **LSPosed**.
-2. Vào **Modules** và bật **Fake GPS**.
-3. Chọn **phạm vi (scope)**:
-    - `system` + `android` + `com.google.android.gms` → giả lập **toàn hệ thống**
-      (ảnh hưởng mọi app).
-    - Hoặc chọn từng app riêng cho giả lập **theo app**.
-
-### 4. Khởi động lại
-
-- **Khởi động lại thiết bị.** Hook của LSPosed được áp dụng lúc tiến trình fork,
-  nên module chỉ hoạt động sau khi khởi động lại.
-
-### 5. Cấp quyền
-
-- Mở app và cấp **quyền vị trí** được yêu cầu.
-- (Tùy chọn) Cấp `POST_NOTIFICATIONS` cho thông báo trạng thái.
-- (Tùy chọn) Tắt tối ưu pin để hành động theo lịch chạy tin cậy.
-
-## Sử dụng
-
-1. Mở **Fake GPS** — bản đồ toàn màn hình là màn hình chính.
-2. **Tìm kiếm** hoặc **chạm** một điểm trên bản đồ, rồi bấm **Set** để bắt đầu
-   giả lập tại đó. Mở app khác để xác nhận thấy vị trí giả.
-    - Chạm lại vào điểm giả và dùng **Replace** để di chuyển, hoặc **Unset** để dừng.
-3. **Dẫn đường theo lộ trình:** đánh dấu điểm đến → **Directions** → chỉnh lộ
-   trình nháp → bấm **Start**. Dùng HUD để đổi tốc độ, bật/tắt đèn đỏ / tự giảm
-   tốc / lặp lại, tạm dừng, hoặc bỏ qua đèn đỏ.
-4. **Joystick:** mở điều khiển joystick và kéo để điều khiển vị trí giả trực tiếp.
-5. **Ghi / Phát lại:** ghi track thật của bạn, rồi phát lại theo đúng thời gian
-   thật hoặc theo tốc độ tùy chọn.
-6. **Lịch:** tạo hành động một lần / hằng ngày / hằng tuần (giả lập, dẫn đường,
-   phát lại, dừng) chạy được cả khi app đã đóng.
-7. **Settings → Anti-detection:** tinh chỉnh các công tắc tàng hình theo nhu cầu.
-
-> Chế độ toàn hệ thống (hook `system_server`) có hiệu lực ở lần nạp tiến trình kế
-> tiếp — cần **khởi động lại thiết bị** sau khi bật.
-
-## Khắc phục sự cố
-
-| Triệu chứng                          | Cách xử lý                                                                                                        |
-| ------------------------------------ | ----------------------------------------------------------------------------------------------------------------- |
-| Module không xuất hiện trong LSPosed | Cài lại APK; xác nhận đây là bản libxposed API 102 và Zygisk đã bật.                                              |
-| App vẫn thấy vị trí thật             | Đảm bảo scope có `system` + `com.google.android.gms`, rồi **khởi động lại**. Kiểm tra module đã active trong app. |
-| Hành động theo lịch không chạy       | Tắt tối ưu pin cho app; cho phép exact alarm; kiểm tra lịch đang bật.                                             |
-| Bản đồ trắng / crash khi mở          | Cung cấp Mapbox **public token** (`pk.`) hợp lệ trong cài đặt app.                                                |
-| Giả lập dừng sau một lúc             | Một số app kiểm tra lại; đảm bảo công tắc anti-detection khớp với app mục tiêu.                                   |
-
-## Miễn trừ trách nhiệm
-
-Module dành cho mục đích **kiểm thử, phát triển và bảo mật riêng tư**. Việc giả
-vị trí có thể vi phạm điều khoản sử dụng của một số ứng dụng và có thể vi phạm
-pháp luật trong một số trường hợp. **Bạn tự chịu trách nhiệm về cách sử dụng.**
-Chỉ dùng ở nơi bạn được phép.
 
 ---
 
