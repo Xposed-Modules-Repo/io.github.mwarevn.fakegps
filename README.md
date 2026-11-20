@@ -26,22 +26,22 @@
   <tr>
     <td align="center" width="33%">
        <a href="https://pub-a052aef593f24fe69f2aed2f3b80118f.r2.dev/demolight.mp4">
-          <img src="https://pub-a052aef593f24fe69f2aed2f3b80118f.r2.dev/demolightcover.jpg" width="100%"/>
+          <img src="https://gps.thorn.vn/assets/img/route.webp" width="100%"/>
        </a>
       <br/>
       <sub><b>Demo</b> - Route Navigation</sub>
     </td>
     <td align="center" width="33%">
        <a href="https://pub-a052aef593f24fe69f2aed2f3b80118f.r2.dev/demodark.mp4">
-          <img src="https://pub-a052aef593f24fe69f2aed2f3b80118f.r2.dev/demodarkcover.jpg" width="100%"/>
+          <img src="https://gps.thorn.vn/assets/img/3d.webp" width="100%"/>
        </a>
       <br/>
       <sub><b>Demo</b> — 3D Style</sub>
     </td>
     <td align="center" width="33%">
-      <img src="https://raw.githubusercontent.com/mwarevn/fake-gps/release/screenshot.jpg" width="100%"/>
+      <img src="https://gps.thorn.vn/assets/img/sensor.webp" width="100%"/>
       <br/>
-      <sub><b>Screenshot</b> — Drawer</sub>
+      <sub><b>Screenshot</b> — Anti Detection</sub>
     </td>
   </tr>
 </table>
